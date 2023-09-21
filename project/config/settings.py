@@ -82,28 +82,28 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 # Настройки для запуска через Docker
-# DATABASES = {
-#     'default': {
-#         'ENGINE': os.getenv('SQL_ENGINE', 'django.db.backends.postgresql_psycopg2'),
-#         'NAME': os.getenv('POSTGRES_NAME', 'postgres'),
-#         'USER': os.getenv('POSTGRES_USER', 'postgres'),
-#         'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'Test1234'),
-#         'HOST': os.getenv('POSTGRES_HOST', 'postgres'),
-#         'PORT': os.getenv('POSTGRES_PORT', 5432),
-#     }
-# }
-
-# Настройки для запуска консолью
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'simple_buy',
-        'USER': 'postgres',
-        'PASSWORD': 'Test1234',
-        'HOST': 'localhost',
-        'PORT': 5432
+        'ENGINE': os.getenv('SQL_ENGINE', 'django.db.backends.postgresql_psycopg2'),
+        'NAME': os.getenv('POSTGRES_NAME', 'postgres'),
+        'USER': os.getenv('POSTGRES_USER', 'postgres'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'Test1234'),
+        'HOST': os.getenv('POSTGRES_HOST', 'postgres'),
+        'PORT': os.getenv('POSTGRES_PORT', 5432),
     }
 }
+
+# Настройки для запуска консолью
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'simple_buy',
+#         'USER': 'postgres',
+#         'PASSWORD': 'Test1234',
+#         'HOST': 'localhost',
+#         'PORT': 5432
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
