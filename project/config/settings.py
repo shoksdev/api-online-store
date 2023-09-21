@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 
 # Build paths inside the config like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,14 +21,16 @@ AUTH_USER_MODEL = 'users.CustomUser'  # В качестве юзера испо�
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
+load_dotenv()  # Используем метод для того, чтобы вытянуть переменные окружения в наш проект из файла .env
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(int(os.environ.get('DEBUG', default=1)))
+DEBUG = os.getenv('DEBUG')
 
 # При запуске через консоль изменить значение переменной на ['*']
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -79,28 +82,28 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 # Настройки для запуска через Docker
-DATABASES = {
-    'default': {
-        'ENGINE': os.getenv('SQL_ENGINE', 'django.db.backends.postgresql_psycopg2'),
-        'NAME': os.getenv('POSTGRES_NAME', 'postgres'),
-        'USER': os.getenv('POSTGRES_USER', 'postgres'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'Test1234'),
-        'HOST': os.getenv('POSTGRES_HOST', 'postgres'),
-        'PORT': os.getenv('POSTGRES_PORT', 5432),
-    }
-}
-
-# Настройки для запуска консолью
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'simple_buy',
-#         'USER': 'postgres',
-#         'PASSWORD': 'Test1234',
-#         'HOST': 'localhost',
-#         'PORT': 5432
+#         'ENGINE': os.getenv('SQL_ENGINE', 'django.db.backends.postgresql_psycopg2'),
+#         'NAME': os.getenv('POSTGRES_NAME', 'postgres'),
+#         'USER': os.getenv('POSTGRES_USER', 'postgres'),
+#         'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'Test1234'),
+#         'HOST': os.getenv('POSTGRES_HOST', 'postgres'),
+#         'PORT': os.getenv('POSTGRES_PORT', 5432),
 #     }
 # }
+
+# Настройки для запуска консолью
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'simple_buy',
+        'USER': 'postgres',
+        'PASSWORD': 'Test1234',
+        'HOST': 'localhost',
+        'PORT': 5432
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
