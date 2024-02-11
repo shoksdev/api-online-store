@@ -21,7 +21,7 @@ Develop a REST API for an online store to make it easier to buy things.
 
 ### 🛠️Stack
 
-**Languages**: Python, JavaScript;  
+**Languages**: Python;  
 **Frameworks**: Django, Django REST Framework;  
 **Libraries**: djoser, psycopg2, drf-nested-routers, python-dotenv;  
 **Database**: PostgreSQL;
