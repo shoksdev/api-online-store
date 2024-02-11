@@ -1,24 +1,54 @@
-Здравствуйте, это API интернет-магазина для прохода на кафедру техникума.
+# Warehouse Django Site
 
-Использовались фреймворки: Django + Django REST Framework; 
-И библиотеки: djoser, psycopg2, drf-nested-routers, python-dotenv
+---
 
-Инструкция по применению: 
+### 🎯Purpose
 
-1) Установить Docker Desktop (https://www.docker.com/products/docker-desktop/);
-2) Клонировать репозиторий;
-3) Открыть его в вашей IDE;
-4) Перейти в папку project;
-5) Открыть терминал;
-6) Сбилдить образ через команду: docker-compose build;
-7) Поднять контейнер через команду: docker-compose up;
-8) Открыть браузер и перейти на страницу: http://127.0.0.1:8000/;
-9) Залогиниться под суперюзером с помощью кнопки "Log In";
-10) Перейти на страницу http://127.0.0.1:8000/api/v1/products/ для получения списка товаров;
-11) Перейти на страницу http://127.0.0.1:8000/api/v1/products/int:pk/ для работы с отдельным товаром;
-12) Перейти на страницу http://127.0.0.1:8000/api/v1/carts/ и отправить POST запрос -> создастся ваша корзина;
-13) Перейти на страницу http://127.0.0.1:8000/api/v1/carts/int:id_your_cart/items/ ввести id товара и его количество -> этот товар добавится в корзину;
-14) Вернуться на страницу http://127.0.0.1:8000/api/v1/carts/int:id_your_cart/items/ и посмотреть список товаров в корзине;
-15) Перейти на страницу http://127.0.0.1:8000/api/v1/orders/ ввести id корзины -> создатся ваш заказ, вы сможете посмотреть список всех ваших заказов и их содержимое, очистится ваша корзина; 
+Develop a REST API for an online store to make it easier to buy things.
 
-Спасибо всем кто скачает и посмотрит этот проект, также буду благодарен за фидбек (что можно улучшить, что исправить). Всего доброго!
+---
+
+### 📝Description
+
+**The project implements the following functionality:**  
+1) Realize a page where all products will be displayed;  
+2) Realize the possibility to view information about one product by its id;  
+3) Realize the ability to add an item to the cart;  
+4) Realize the possibility to view your shopping cart;  
+5) Implement the ability to check out for the entire cart.
+
+---
+
+### 🛠️Stack
+
+**Languages**: Python, JavaScript;  
+**Frameworks**: Django, Django REST Framework;  
+**Libraries**: djoser, psycopg2, drf-nested-routers, python-dotenv;  
+**Database**: PostgreSQL;
+**Tools**: Docker, docker-compose.
+
+---
+
+### ⚙️Installation
+
+---
+
+1) **Clone the repository**: ```git clone https://github.com/shoksdev/simple_buy.git```  
+2) **Go to the project folder**: ```cd project```  
+3) **Start the project with superuser creation**: ```docker-compose run django python manage.py createsuperuser```  
+4) **Bring the project**: ```docker-compose up```  
+
+---
+
+### 📙Guidelines for use
+
+1) Go to http://127.0.0.1:8000/api/v1/products/ for a list of products;
+2) Go to the page http://127.0.0.1:8000/api/v1/products/int:pk/ to work with an individual product;  
+3) Go to http://127.0.0.1:8000/api/v1/carts/ page and send POST request -> your cart will be created;  
+4) Go to http://127.0.0.1:8000/api/v1/carts/int:id_your_cart/items/ and enter product id and quantity -> this product will be added to your cart;  
+5) Go back to http://127.0.0.1:8000/api/v1/carts/int:id_your_cart/items/ and see the list of items in your cart;  
+6) Go to http://127.0.0.1:8000/api/v1/orders/ and enter the id of the cart -> your order will be created, you will be able to see the list of all your orders and their contents, your cart will be cleared;  
+
+---
+
+#### Thank you very much for taking the time to share this repository and my profile in general. All the best!
