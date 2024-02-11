@@ -1,4 +1,4 @@
-# Warehouse Django Site
+# Online Store API
 
 ---
 
